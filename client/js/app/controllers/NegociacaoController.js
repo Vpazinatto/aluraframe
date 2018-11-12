@@ -11,13 +11,12 @@ class NegociacaoController {
         event.preventDefault();
 
         let helper = new DateHelper();
-        let data = helper.textoParaData(this._inputData.value);
 
-        let negociação = new Negociacao(data, this._inputQuantidade.value, this._inputValor.value);
+        let negociação = new Negociacao(helper.textoParaData(this._inputData.value), this._inputQuantidade.value, this._inputValor.value);
 
-        let diaMesAno = helper.data
+        let diaMesAno = helper.dataParaTexto(negociação.data);
 
-        console.log(diaMesAno);
+        console.log(negociação);
 
         //adicionar a negociação em uma lista
     }
