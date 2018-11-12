@@ -10,15 +10,14 @@ class NegociacaoController {
     adiciona(event) {
         event.preventDefault();
 
-        let data = new Date(this._inputData.value.split('-').map(function(item, indice) {
-            if (indice == 1)
-                return item-1;
+        let helper = new DateHelper();
+        let data = helper.textoParaData(this._inputData.value);
 
-            return item;
-        }));
-        console.log(data);
+        let negociação = new Negociacao(data, this._inputQuantidade.value, this._inputValor.value);
 
-        //let negociacao = new Negociacao(this._inputData.value, this._inputQuantidade.value, this._inputValor.value);
+        let diaMesAno = helper.data
+
+        console.log(diaMesAno);
 
         //adicionar a negociação em uma lista
     }
